@@ -210,8 +210,11 @@
 			//var gender = $("#
 			var random = Math.floor(Math.random()*searchVariable.length)
 		
-			//search(searchVariable[random]);
-			getBeverageInfo();
+			//
+			var beverage = getBeverageInfo();
+			var movie 	 = search(searchVariable[random]);
+			$("#results").html(returnHTML);
+			
 	
 			/*switch (userGender){
 				case "man":
@@ -254,6 +257,8 @@
 					
 					if(result != null) {
 						var search = $.parseJSON(result);
+						
+						/*
 						var returnHTML = "";
 						
 						alert(search["articleId"]);
@@ -271,6 +276,8 @@
 
 						console.log($("#results"));
 						$("#results").html(returnHTML);
+						*/
+						return search;
 					}
 					
 				}
@@ -300,6 +307,7 @@
 						alert("Inga träffar, stavade du rätt?");
 					} else {
 						if(result != null || result["Search"] != null) {
+							/*
 							var search = result["Search"];
 							var returnHTML = "";
 							for(var i = 0; i < search.length; i++) {
@@ -313,9 +321,11 @@
 								returnHTML += '</div>\n';
 							}
 							console.log(returnHTML);
-
-							console.log($("#results"));
-							$("#results").html(returnHTML);
+							*/
+							//console.log($("#results"));
+							//$("#results").html(returnHTML);
+							return result;
+							
 						}
 					}
 				}
