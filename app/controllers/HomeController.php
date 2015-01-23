@@ -23,4 +23,16 @@ class HomeController extends BaseController {
 	public function postNewMovie(){
 	
 	}
+	
+	public function postUpdateFile(){
+		$ids 	= (array)Input::get("data");
+
+		$fp=fopen("data/beverage.txt","w+");
+		
+		foreach($ids as $key => $value){
+			fwrite($fp,$value."\n");
+		}
+
+		return $ids;
+	}
 }

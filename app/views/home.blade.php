@@ -55,7 +55,34 @@
 		</form>
 		</div>
 		
-		<p id="results"></p>
+		<div class="container" id="results">
+			<div class="panel panel-default">
+			<div class="panel-heading">Title</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-12 col-sm-12">
+						<img src="..." alt="..." width="500px" height="500px" id="suggest_image" class="img-thumbnail">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-sm-6">
+						<ul class="list-group">
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>	
+					</div>
+					<div class="col-md-6 col-sm-6">
+						<ul class="list-group">
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
 	</div>
 
 	<script>
@@ -123,6 +150,7 @@
 		
 			//search(searchVariable[random]);
 			getBeverageInfo();
+	
 			/*switch (userGender){
 				case "man":
 				
@@ -151,30 +179,32 @@
 				type: "GET",
 				url: url,
 				error: function () {
-					
-					
+					//beverages.splice( $.inArray(beverages[random], beverages), 1 );
+		
 					getBeverageInfo();
 					//alert("Det finns inget att göra just nu :(");
-					
 				},
 				success: function (result) {
 					console.log("got data back (search)");
 					console.log(result);
 					
+					//updateFile();
 					
-					if(result != null || result["Search"] != null) {
-						var search = result["Search"];
+					if(result != null) {
+						var search = $.parseJSON(result);
 						var returnHTML = "";
-						for(var i = 0; i < search.length; i++) {
-							returnHTML += '<div class="result">\n';
-							returnHTML += '<p class="title">\n';
-							returnHTML += search["name"] + " (" + search["type"] + ")";
-							returnHTML += '</p>\n';
-							returnHTML += '<p>\n';
-		
-							returnHTML += '</p>\n';
-							returnHTML += '</div>\n';
-						}
+						
+						alert(search["articleId"]);
+						
+						returnHTML += '<div class="result">\n';
+						returnHTML += '<p class="title">\n';
+						returnHTML += search["name"] + " (" + search["type"] + ")";
+						returnHTML += '</p>\n';
+						returnHTML += '<p>\n';
+	
+						returnHTML += '</p>\n';
+						returnHTML += '</div>\n';
+						
 						console.log(returnHTML);
 
 						console.log($("#results"));
@@ -229,7 +259,19 @@
 				}
 			});
 			return false;
-		}	
+		}
+
+
+		function updateFile(){
+			$.ajax({
+				url : "{{URL::action('HomeController@postUpdateFile')}}",
+				type : "POST",
+				data : { data : beverages }
+			}).done(function(json){
+				getBeverage();
+				getBeverageInfo();
+			});
+		}
 	</script>
 	
 	<style>
