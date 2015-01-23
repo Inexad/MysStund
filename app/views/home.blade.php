@@ -57,38 +57,91 @@
 		
 		<div class="container" id="results">
 			<div class="panel panel-default">
-			<div class="panel-heading">Title</div>
+			<div class="panel-heading"><h3>Title (Totalt pris)</h3></div>
 			<div class="panel-body">
 				<div class="row">
-					<div class="col-md-12 col-sm-12">
-						<img src="..." alt="..." width="500px" height="500px" id="suggest_image" class="img-thumbnail">
+					<div class="col-md-3 col-sm-3">
+						<div class="col-md-12 col-sm-12">
+							<img src="/img/note.png" alt="..." width="250px" height="250px" id="suggest_image" class="img-thumbnail">
+						</div>
 					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-6 col-sm-6">
+					<div class="col-md-3 col-sm-3">
 						<ul class="list-group">
-							<li></li>
-							<li></li>
-							<li></li>
-						</ul>	
-					</div>
-					<div class="col-md-6 col-sm-6">
-						<ul class="list-group">
-							<li></li>
-							<li></li>
-							<li></li>
+							<li class="list-group-item">Star Wars</li>
+							<li class="list-group-item">145 min</li>
+							<li class="list-group-item">Sci-fi</li>
 						</ul>
 					</div>
+					
+					<div class="col-md-3 col-sm-3">
+						<ul class="list-group">
+							<li class="list-group-item">Sprit</li>
+							<li class="list-group-item">40%</li>
+							<li class="list-group-item"></li>
+						</ul>
+					</div>
+					<div class="col-md-3 col-sm-3">
+						<div class="col-md-12 col-sm-12">
+							<img src="/img/note.png" alt="..." width="250px" height="250px" id="suggest_image" class="img-thumbnail">
+						</div>
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col-md-12 col-sm-12">
+						<div class="alert alert-info" role="alert">
+						<h4>Förberedelser</h4>
+						 * Du behöver införskaffa [SPRITMÄNGD][SPRITNAMN] som kostar [SPRITKOSTNAD].
+						 * Du behöver hyra, köpa gå på bio, eller "låna" [FILMNAMN], alternativt är den en riktig h*n och illegalt laddar ner filmen. Som en boss.
+						
+						
+						<h4>Förslag</h4>
+						Vi har räknat ut att du kommer behöva  dryck för att [Array:Adjektiv] kolla på denna filmen.
+						
+						
+						
+					
+						
+						</div>
+					</div>					
+				</div>
+				<div class="row">
+					<div class="col-md-12 col-sm-12">
+						<div class="alert alert-danger" role="alert">
+							<small>Tänk på!
+							Våra resultat är väldigt pålitliga. Den har vid upprepande tillfällen testats hårt av dvärg och häst. 
+							Men vi tar inget ansvar för eventuella olyckor så som baksmälla, medicinska symptom, sexuella sjukdomar och sexuell ohälsa. Vi tar vidare inte heller ansvar några som helst negativa konsekvenser av användadet av denna app, dock uppskattar vi positiv feedback för att utveckla och förbättre verktyget (trots att den nästan är felfri).<b> Är du dansk? <a href="https://www.youtube.com/watch?v=4YFmCAdhdNQ&x-yt-cl=84503534&x-yt-ts=1421914688&feature=player_detailpage">Lämna sidan här.</a></b>
+							</small>
+						</div>
+					</div>					
 				</div>
 			</div>
 			</div>
 		</div>
 	</div>
+	
+	Array:Namn
+	Daniel, Artur
+	
+	Array:Verb
+	åka skidor, handla glass, kasta åsnor
+	
+	Array:Adjektiv
+	vildsint, upphetsat, mycket, långrdraget
+	
+	Array:Sätt att dricka
+	halsa, svepa, lugnt dricka, klunka
+	
+	
+	Vi har ett förslag till dig:
+	Du ska titta på [FILMNAMN] och [Array:Adjektiv] [Array:Sätt att dricka] [SPRITNAMN]. 
+	
 
 	<script>
 		$(document).on("ready", start);
 		
 		var searchVariable = [ "star", "xxx", "babe", "fight", "bad", "lord" ];
+		
 		var beverages	   = "";
 		var userMood	   = "";
 		var userGender	   = "";
