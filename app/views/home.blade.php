@@ -55,7 +55,19 @@
 		</form>
 		</div>
 		
-		<div class="container" id="results">
+			<div class="container" id="results">	
+					<div class="row">
+				<div class="col-md-12 col-sm-12">
+					<div class="alert alert-danger" role="alert">
+						<small>Tänk på!
+						Våra resultat är väldigt pålitliga. Den har vid upprepande tillfällen testats hårt av dvärg och häst. 
+						Men vi tar inget ansvar för eventuella olyckor så som baksmälla, medicinska symptom, sexuella sjukdomar och sexuell ohälsa. Vi tar vidare inte heller ansvar några som helst negativa konsekvenser av användadet av denna app, dock uppskattar vi positiv feedback för att utveckla och förbättre verktyget (trots att den nästan är felfri).<b> Är du dansk? <a href="https://www.youtube.com/watch?v=4YFmCAdhdNQ&x-yt-cl=84503534&x-yt-ts=1421914688&feature=player_detailpage">Lämna sidan här.</a></b>
+						</small>
+					</div>
+				</div>					
+			</div>
+		
+		
 			<div class="panel panel-default">
 			<div class="panel-heading"><h3>Title (Totalt pris)</h3></div>
 			<div class="panel-body">
@@ -96,25 +108,12 @@
 						
 						
 						<h4>Förslag</h4>
-						Vi har räknat ut att du kommer behöva  dryck för att [Array:Adjektiv] kolla på denna filmen.
-						
-						
-						
-					
+							Vi har räknat ut att du kommer behöva  dryck för att [Array:Adjektiv] kolla på denna filmen.
 						
 						</div>
 					</div>					
 				</div>
-				<div class="row">
-					<div class="col-md-12 col-sm-12">
-						<div class="alert alert-danger" role="alert">
-							<small>Tänk på!
-							Våra resultat är väldigt pålitliga. Den har vid upprepande tillfällen testats hårt av dvärg och häst. 
-							Men vi tar inget ansvar för eventuella olyckor så som baksmälla, medicinska symptom, sexuella sjukdomar och sexuell ohälsa. Vi tar vidare inte heller ansvar några som helst negativa konsekvenser av användadet av denna app, dock uppskattar vi positiv feedback för att utveckla och förbättre verktyget (trots att den nästan är felfri).<b> Är du dansk? <a href="https://www.youtube.com/watch?v=4YFmCAdhdNQ&x-yt-cl=84503534&x-yt-ts=1421914688&feature=player_detailpage">Lämna sidan här.</a></b>
-							</small>
-						</div>
-					</div>					
-				</div>
+
 			</div>
 			</div>
 		</div>
@@ -150,6 +149,7 @@
 		function start() {
 			registerListeners();
 			getBeverage();
+			executeDanish();
 		}	
 		
 		/*
@@ -160,6 +160,15 @@
 			$(".moodValue").on("click", setMood);
 			$(".gender").on("click", setGender);
 			$("#maxPrice").on("change", setCost);
+		}
+		
+		function executeDanish(){
+			setTimeout("showDanishMessage()", Math.floor(Math.random()*15099));
+			
+		}
+		
+		function showDanishMessage(){
+			alert("Danskjävel! Försvinn!");
 		}
 		
 		/*
