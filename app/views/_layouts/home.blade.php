@@ -10,6 +10,9 @@
 
 		<!-- Site navigation bar -->
 		@include('_includes-home.navbar')
+		
+		<!-- Site navigation bar -->
+		@yield('content')
 		<hr>
 		<!-- Site footer -->
 		@include('_includes-home.footer')
