@@ -40,7 +40,9 @@ class SystemBolagetAPI extends \BaseController {
     */
     
     public function getShowAllDrinks(){
-        
+        $product = Product::all();
+    
+        return $product;  
     }
 
 
