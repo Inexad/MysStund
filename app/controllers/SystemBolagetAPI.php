@@ -63,8 +63,8 @@ class SystemBolagetAPI extends \BaseController {
 	 * @return Response
 	 */
 	public function getSearch(){
-        $result = Product::where("name",Input::get("s"))
-                        ->orWhere("name2",Input::get("s"))
+        $result = Product::where("name2","LIKE", "%".Input::get("s")."%")
+                        ->orWhere("name2","LIKE", "%".Input::get("s")."%")
                         ->orWhere("productcategory",Input::get("s"))
                         ->orWhere("packaging",Input::get("s"))
                         ->orWhere("sealing",Input::get("s"))
