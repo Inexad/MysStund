@@ -40,7 +40,7 @@
 							<span id="moodTitle">Välj</span>
 							<span class="caret"></span>
 						</button>
-						<ul class="dropdown-menu" role="menu" id="moodDropdown" aria-labelledby="dropdownMenu1">
+						<ul class="dropdown-menu fancylist" role="menu" id="moodDropdown" aria-labelledby="dropdownMenu1">
 							<li role="presentation"><a role="menuitem" class="moodValue" tabindex="-1" href="#">Glad</a></li>
 							<li role="presentation"><a role="menuitem" class="moodValue" tabindex="-1" href="#">Ledsen</a></li>
 							<li role="presentation"><a role="menuitem" class="moodValue" tabindex="-1" href="#">Kåt</a></li>
@@ -66,13 +66,15 @@
 			</div>
 
 
-			<div class="panel panel-default">
-			<div class="panel-heading"><h3 id="titlePrice"></h3></div>
+			<div id="info" class="panel panel-default">
+			<div class="panel-heading"><h1 id="titlePrice"></h1></div>
 			<div class="panel-body">
+
 				<div class="row">
+
 					<div class="col-md-3 col-sm-3">
-						<div class="col-md-12 col-sm-12">
-							<img src="/img/note.png" alt="..." width="250px" height="250px" id="suggest_image" class="img-thumbnail">
+						<div class="col-md-12 col-sm-12 glossy-reflection image-wrap">
+							<img src="/img/loading.gif" alt="..." id="suggest_image" class="img-thumbnail glossy-reflection image-wrap">
 						</div>
 					</div>
 					<div class="col-md-3 col-sm-3">
@@ -80,33 +82,39 @@
 							<li class="list-group-item"><span id=movie_title>&nbsp</span></li>
 							<li class="list-group-item"><span id=movie_lenght>&nbsp</li>
 							<li class="list-group-item"><span id=movie_genre>&nbsp</li>
+							<li class="list-group-item"><span id=movie_plot>&nbsp</li>
 						</ul>
 					</div>
 
 					<div class="col-md-3 col-sm-3">
 						<ul class="list-group">
 							<li class="list-group-item"><span id=liquor_title>&nbsp</span></li>
+							<li class="list-group-item"><span id=liquor_desc>&nbsp</span></li>
 							<li class="list-group-item"><span id=liquor_alc>&nbsp</span></li>
 							<li class="list-group-item"><span id=liquor_price>&nbsp</span></li>
 						</ul>
 					</div>
+
 					<div class="col-md-3 col-sm-3">
-						<div class="col-md-12 col-sm-12">
-							<img src="/img/note.png" alt="..." width="250px" height="250px" id="suggest_image" class="img-thumbnail">
+						<div class="col-md-12 col-sm-12 glossy-reflection image-wrap">
+							<img src="/img/loading.gif" alt="..." id="suggest_image" class="img-thumbnail glossy-reflection image-wrap">
 						</div>
 					</div>
+
 				</div>
-				<hr>
+
 				<div class="row">
 					<div class="col-md-12 col-sm-12">
-						<div class="alert alert-info" role="alert">
+						<div id="alert" class="alert alert-info" role="alert">
 						<h4>Förberedelser</h4>
-						 * Du behöver införskaffa <span id="liqr_ammount"></span> L <span id="liqr"></span> som kostar <span id="liqr_cost"></span> [SPRITKOSTNAD].
-						 * Du behöver hyra, köpa gå på bio, eller "låna" <span id="movie"></span>, alternativt är den en riktig h*n och illegalt laddar ner filmen. Som en boss.
-
+						<ul>
+							<li class="list-group-item">Du behöver införskaffa <span id="liqr_ammount"></span> L <span id="liqr"></span> som kostar <span id="liqr_cost"></span></li>
+							<li class="list-group-item">Du behöver hyra, köpa gå på bio, eller "låna" <span id="movie"></span>, alternativt är den en riktig h*n och illegalt laddar ner filmen. Som en boss.</li>
+						</ul>
 						<h4>Förslag</h4>
-						 * Du ska titta på <span id="fmovie"></span> och <span id="fadj"></span> <span id="fmeth"></span> <span id="fliqr"><span> [SPRITNAMN].
-
+						<ul>
+							<li class="list-group-item">Du ska titta på <span id="fmovie"></span> och <span id="fadj"></span> <span id="fmeth"></span> <span id="fliqr"><span></li>
+						</ul>
 						</div>
 					</div>
 				</div>
@@ -115,6 +123,183 @@
 			</div>
 		</div>
 	</div>
+
+	<style>
+
+		.alert-danger {
+			box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
+		}
+
+		body {
+			background: #eee;
+		}
+
+		#results {
+			display: none;
+		}
+
+		#titlePrice {
+			color: white;
+
+			text-shadow: 0 1px 0 #ccc,
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);
+
+			background: rgba(41, 157, 126, 1);
+			box-shadow: inset 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
+			-webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(50%, transparent), to(rgba(255,255,255,0.4)));
+		}
+
+		.panel-heading {
+			text-align: center;
+			padding-left:		0px;
+			padding-right:	0px;
+			padding-top:		10px;
+			padding-bottom: 15px;
+			box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
+		}
+
+		.list-group {
+			height: 		200px;
+			overflow: 	auto;
+		}
+
+		.list-group-item {
+			min-height: 30px;
+		}
+
+		.panel-body {
+			box-shadow: inset 2px 2px 5px 0px rgba(50, 50, 50, 0.75), 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
+			background: linear-gradient(to bottom, #a90329 0%,#8f0222 44%,#6d0019 100%);
+		}
+
+		.img-thumbnail {
+			background: rgba(60, 2, 2, 0.97);
+			width:			196px;
+			height:			196px;
+		}
+
+		#info {
+			display:none;
+			overflow:auto;
+			background: rgba(130, 130, 130, 1);
+
+		}
+
+		#alert {
+			margin: 15px;
+			box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
+		}
+
+		#mood{
+			width:100%;
+		}
+
+		#moodDropdown{
+			width:100%;
+		}
+
+		#searchSomething{
+			margin-top:			50px;
+			margin-bottom:	50px;
+		}
+
+		.glossy-reflection .image-wrap {
+			-webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.6);
+			-moz-box-shadow: inset 0 -1px 0 rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.6);
+			box-shadow: inset 0 -1px 0 rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.6);
+
+			-webkit-transition: 1s;
+			-moz-transition: 1s;
+			transition: 1s;
+
+			-webkit-border-radius: 20px;
+			-moz-border-radius: 20px;
+			border-radius: 20px;
+		}
+
+		.glossy-reflection .image-wrap:before {
+			position: absolute;
+			content: ' ';
+			width: 100%;
+			height: 50%;
+			top: 0;
+			left: 0;
+
+			-webkit-border-radius: 20px;
+			-moz-border-radius: 20px;
+			border-radius: 20px;
+
+			background: -moz-linear-gradient(top, rgba(255,255,255,0.7) 0%, rgba(255,255,255,.1) 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.7)), color-stop(100%,rgba(255,255,255,.1)));
+			background: linear-gradient(top, rgba(255,255,255,0.7) 0%,rgba(255,255,255,.1) 100%);
+		}
+
+		.glossy-reflection .image-wrap:after {
+			position: absolute;
+			content: ' ';
+			width: 100%;
+			height: 30px;
+			bottom: -31px;
+			left: 0;
+
+			-webkit-border-top-left-radius: 20px;
+			-webkit-border-top-right-radius: 20px;
+			-moz-border-radius-topleft: 20px;
+			-moz-border-radius-topright: 20px;
+			border-top-left-radius: 20px;
+			border-top-right-radius: 20px;
+
+			background: -moz-linear-gradient(top, rgba(230,230,230,.3) 0%, rgba(230,230,230,0) 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(230,230,230,.3)), color-stop(100%,rgba(230,230,230,0)));
+			background: linear-gradient(top, rgba(230,230,230,.3) 0%,rgba(230,230,230,0) 100%);
+		}
+
+		body:nth-of-type(1) ul li {
+			list-style-type:none;
+			padding: 0 0 0 45px;
+			position:relative;
+			transition: all 1s linear;
+		}
+
+		body:nth-of-type(1) ul li:before {
+			/*fill it with a check mark*/
+			content:"✔";
+			color: snow;
+			background-color: rgba(41, 157, 126, 0.97);
+			box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
+			padding-top: 		2px;
+			padding-right: 	6px;
+			padding-left: 	6px;
+
+			/*make it a block element*/
+			display: block;
+			border-radius: 100%;
+			-moz-border-radius: 25px;
+			-webkit-bo rder-radius: 25px;
+
+			/*Now position it on the left of the list item, and center it vertically
+			(so that it will work with multiple line list-items)*/
+			position: absolute;
+			left: 7px;
+			top: 40%;
+			margin-top: -8px;
+			transition: all 1s linear;
+		}
+
+		body:nth-of-type(1) ul li:hover:before {
+			background-color: rgba(110, 0, 25, 1);
+		}
+	</style>
 
 	<script>
 		$(document).on("ready", start);
@@ -137,7 +322,8 @@
 
 		function start() {
 			registerListeners();
-			getBeverage();
+			initInterface();
+			//getBeverage();
 			executeDanish();
 		}
 
@@ -149,6 +335,10 @@
 			$(".moodValue").on("click", setMood);
 			$(".gender").on("click", setGender);
 			$("#maxPrice").on("change", setCost);
+		}
+		function initInterface(){
+			$("#results").slideDown("slow");
+
 		}
 
 		function executeDanish(){
@@ -196,6 +386,10 @@
 		|
 		*/
 		function doSomething(){
+			// Fancy stuff
+			$(".alert:first").slideUp("slow");
+
+
 			switch (userGender) {
 				case "Kvinna":
 					switch (userMood){
@@ -416,6 +610,12 @@
 							$("#movie_title").html(result["Title"]);
 							$("#movie_lenght").html(result["Runtime"]);
 							$("#movie_genre").html(result["Genre"]);
+							$("#movie_plot").html(result["Plot"]);
+
+							// Fancy stuff
+							$("#info").slideDown("slow", function (){
+									$("html, body").animate({ scrollTop: "300px" });
+							});
 
 							return result;
 
@@ -475,6 +675,7 @@
 								$("#liquor_title").html(liqrName);
 								$("#liquor_alc").html(liqrVal);
 								$("#liquor_price").html("Pris: " + liqrReq + " (L)");
+								$("#liquor_desc").html(afordableSpirits[randomLiqr]["productcategory"]);
 
 								$("#titlePrice").html(priceTotal);
 								$("#liqr").html(liqrName);
@@ -492,20 +693,5 @@
 			});
 			return false;
 		}
-
 	</script>
-
-	<style>
-		#mood{
-			width:100%;
-		}
-
-		#moodDropdown{
-			width:100%;
-		}
-
-		#searchSomething{
-			margin-top:50px;
-		}
-	</style>
 @stop
