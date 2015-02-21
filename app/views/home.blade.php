@@ -200,6 +200,11 @@
 			box-shadow: 2px 2px 5px 0px rgba(50, 50, 50, 0.75);
 		}
 
+		#fmovie, #fadj, #fmeth, #fliqr {
+			font-weight: bold;
+			color: rgba(110, 0, 25, 1);
+		}
+
 		#mood{
 			width:100%;
 		}
