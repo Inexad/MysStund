@@ -68,7 +68,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'systembolaget',
 			'username'  => 'root',
-			'password'  => '7kjwS7pb7VU2M37',
+			'password'  => '',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
