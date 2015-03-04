@@ -1,7 +1,10 @@
 <?php
 
 class SystemBolagetAPI extends \BaseController {
-    
+
+    public function getIndex(){
+        return View::make("systembolaget");
+    }  
     /**
      * Load all data.
      *
@@ -51,12 +54,25 @@ class SystemBolagetAPI extends \BaseController {
     }
     
     
+    /**
+	 * Display all drinks.
+	 *
+	 * @return result
+	 */
     public function getShowAllDrinks(){
         $product = Product::all();
     
         return $product;  
     }
-
+    
+    /**
+    * 
+    */
+    public function getCountDrinks(){
+        $product = Product::all();
+    
+        return sizeOf($product);  
+    }
 
 	/**
 	 * Display the specified product by id.

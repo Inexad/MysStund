@@ -66,10 +66,24 @@
 			</div>
 
 
-			<div class="panel panel-default">
+			<div class="panel panel-default" id="contentArea">
 			<div class="panel-heading"><h3 id="titlePrice"></h3></div>
 			<div class="panel-body">
+                <div class="row">
+					<div class="col-md-12 col-sm-12">
+						<div class="alert alert-info" role="alert">
+						<h4>Förberedelser</h4>
+						 * Du behöver införskaffa <span id="liqr_ammount"></span> L <span id="liqr"></span> som kostar <span id="liqr_cost"></span> [SPRITKOSTNAD].
+						 * Du behöver hyra, köpa gå på bio, eller "låna" <span id="movie"></span>, alternativt är den en riktig h*n och illegalt laddar ner filmen. Som en boss.
+
+						<h4>Förslag</h4>
+						 * Du ska titta på <span id="fmovie"></span> och <span id="fadj"></span> <span id="fmeth"></span> <span id="fliqr"><span> [SPRITNAMN].
+
+						</div>
+					</div>
+				</div>
 				<div class="row">
+                    <legend style="margin-left:10px;"> Införskaffa:</legend>
 					<div class="col-md-3 col-sm-3">
 						<div class="col-md-12 col-sm-12">
 							<img src="/img/note.png" alt="..." width="250px" height="250px" id="suggest_image" class="img-thumbnail">
@@ -97,20 +111,6 @@
 					</div>
 				</div>
 				<hr>
-				<div class="row">
-					<div class="col-md-12 col-sm-12">
-						<div class="alert alert-info" role="alert">
-						<h4>Förberedelser</h4>
-						 * Du behöver införskaffa <span id="liqr_ammount"></span> L <span id="liqr"></span> som kostar <span id="liqr_cost"></span> [SPRITKOSTNAD].
-						 * Du behöver hyra, köpa gå på bio, eller "låna" <span id="movie"></span>, alternativt är den en riktig h*n och illegalt laddar ner filmen. Som en boss.
-
-						<h4>Förslag</h4>
-						 * Du ska titta på <span id="fmovie"></span> och <span id="fadj"></span> <span id="fmeth"></span> <span id="fliqr"><span> [SPRITNAMN].
-
-						</div>
-					</div>
-				</div>
-
 			</div>
 			</div>
 		</div>
@@ -139,6 +139,8 @@
 			registerListeners();
 			getBeverage();
 			executeDanish();
+            
+            $("#contentArea").css("display", "none");
 		}
 
 		/*
@@ -376,7 +378,8 @@
 			console.log("Mood: " + userMood);
 			console.log("Gender: " + userGender);
 			console.log("Cost: " + userCost);
-
+            
+            $("#contentArea").css("display", "block");
 		}
 
 		/*
@@ -507,5 +510,13 @@
 		#searchSomething{
 			margin-top:50px;
 		}
+        
+        .list-group-item{
+            border: 0px solid #DDD;
+        }
+        
+        .img-thumbnail{
+           border: 0px solid #DDD;   
+        }
 	</style>
 @stop

@@ -10,7 +10,9 @@
 			<a class="navbar-brand" href="#"></a>
 		</div>
 		<ul class="nav navbar-nav">
-			<li class="active"><a href="#">Mys till de</a></li>
+			<li @if(Route::getCurrentRoute()->getPath() == 'home') class="active" @endif ><a href="home">Mys till de</a></li>
+            <li @if(Route::getCurrentRoute()->getPath() == 'systembolaget') class="active" @endif ><a href="systembolaget">Systembolaget API</a></li>
+            <li @if(Route::getCurrentRoute()->getPath() == 'combo') class="active" @endif ><a href="combo">Combo API</a></li>
         </ul>
 	</div>
 </nav>
