@@ -27,7 +27,6 @@
 
 
 	   </div>
-    </div>
 
 	<script>
 		$(document).on("ready", start);
