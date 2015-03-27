@@ -11,4 +11,4 @@
 	*/	
 	Route::controller('/home', 'HomeController');	
     Route::controller('/systembolaget', 'SystemBolagetAPI');	
-	
+    Route::controller('/API', 'MysStundAPI');
