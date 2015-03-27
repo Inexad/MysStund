@@ -12,6 +12,7 @@
 		<ul class="nav navbar-nav">
 			<li @if(Route::getCurrentRoute()->getPath() == 'home') class="active" @endif ><a href="home">Mys till de</a></li>
             <li @if(Route::getCurrentRoute()->getPath() == 'API') class="active" @endif ><a href="API">API</a></li>
+            <li @if(Route::getCurrentRoute()->getPath() == 'systembolaget') class="active" @endif ><a href="systembolaget">Systembolaget</a></li>
         </ul>
 	</div>
 </nav>
