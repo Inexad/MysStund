@@ -91,18 +91,22 @@ class SystemBolagetAPI extends \BaseController {
 	 * @return result
 	 */
 	public function getSearch(){
-        $result = Product::where("name","LIKE", "%".Input::get("s")."%")
-                        ->orWhere("name2","LIKE", "%".Input::get("s")."%")
-                        ->orWhere("productcategory",Input::get("s"))
-                        ->orWhere("packaging",Input::get("s"))
-                        ->orWhere("sealing",Input::get("s"))
-                        ->orWhere("origin",Input::get("s"))
-                        ->orWhere("originlandname",Input::get("s"))
-                        ->orWhere("supplier",Input::get("s"))
-                        ->orWhere("year",Input::get("s"))
-                        ->orWhere("producer",Input::get("s"))->get();
-        return $result;  
+        return $this->search(Input::get("s"));
 	}
+    
+    public function search($title){
+        $result = Product::where("name","LIKE", "%".$title."%")
+                        ->orWhere("name2","LIKE", "%".$title."%")
+                        ->orWhere("productcategory",$title)
+                        ->orWhere("packaging",$title)
+                        ->orWhere("sealing",$title)
+                        ->orWhere("origin",$title)
+                        ->orWhere("originlandname",$title)
+                        ->orWhere("supplier",$title)
+                        ->orWhere("year",$title)
+                        ->orWhere("producer",$title)->get();
+        return $result;  
+    }
     
     
     /**
