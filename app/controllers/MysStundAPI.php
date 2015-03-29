@@ -162,6 +162,7 @@ class MysStundAPI extends \SystemBolagetAPI {
                 } 
             }
             
+            
             $affordableSpirits = array();
             foreach($this->liquors as $liquor){
                 if($liquor->priceVAT < $price){
@@ -170,7 +171,7 @@ class MysStundAPI extends \SystemBolagetAPI {
             }
             
             if(!sizeOf($affordableSpirits) > 0){
-                return "Din snåla jävel";
+                return "Din snåla jävel"; //Json format. 
             }
             
             $random = array_rand($affordableSpirits);
@@ -178,6 +179,10 @@ class MysStundAPI extends \SystemBolagetAPI {
 
             $random = array_rand($searchVariable);
             $pickedMovie = $this->getMovieInfo($searchVariable[$random]);
+            
+            if($pickedMovie->Response == "False"){
+                return "Ingen film hittades. Var vänlig och försök igen";    //Json format.
+            }
             
             $data['beverage'] = $pickedBeverage;
             $data['movie']    = $pickedMovie;
@@ -203,9 +208,18 @@ class MysStundAPI extends \SystemBolagetAPI {
             
                 $data['price_for_drink'] = $priceToDrink;     
             }
+
             
+            $data['preparation'][1] = "Du behöver införskaffa ".($data['amount_to_drink']*100)."cl ".$data['beverage']->name." som kostar ".$data['price_for_drink']."kr"; 
+            $data['preparation'][2] = "Du behöver hyra, köpa gå på bio, eller 'låna' , alternativt är den en riktig h*n och illegalt laddar ner filmen. Som en boss.";
+           
+            $randomAdj = array_rand($this->adj);
+            $randomMeth = array_rand($this->meth);
             
-            return json_encode($data);
+            $data['suggestion'] = "Du ska titta på ".json_encode($pickedMovie->Title)." och ".$this->adj[$randomAdj]." ".$this->meth[$randomMeth]." ".$data['beverage']->name;
+                
+            return var_dump($data);
+            return $data; //Json format.
         }else{
             return "Missing parameter";   
         }
