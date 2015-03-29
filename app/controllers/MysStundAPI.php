@@ -22,6 +22,22 @@ class MysStundAPI extends \SystemBolagetAPI {
         $this->gender = strtolower(Input::get("gender"));
         $this->price  = strtolower(Input::get("price"));
         $this->mood   = strtolower(Input::get("mood"));
+    
+        $data = array();
+        
+        if(Input::get("gender") == "" || Input::get("gender") == "kön"){
+           $data[0] = "Jag menade inte 'kön' bildligt... du ska skriva ditt kön alltså.";
+        }
+        
+        if(Input::get("price") == "" || Input::get("price") == "pris"){
+           $data[1] = "Jag menade inte 'pris' bildligt... du ska skriva priset du kan tänkas betala alltså.";
+        }
+        
+        if(Input::get("mood") == "" || Input::get("mood") == "humör"){
+           $data[2] = "Jag menade inte 'humör' bildligt... du ska skriva ditt humör alltså.";
+        }
+        
+        if(isset($data)) return json_encode($data);
         
         $price      = $this->price;
         $mood       = $this->mood;
