@@ -37,7 +37,7 @@ class MysStundAPI extends \SystemBolagetAPI {
            $data[2] = "Jag menade inte 'humör' bildligt... du ska skriva ditt humör alltså.";
         }
         
-        if(isset($data)) return json_encode($data);
+        if(!empty($data)) return json_encode($data, JSON_UNESCAPED_UNICODE);
         
         $price      = $this->price;
         $mood       = $this->mood;
@@ -54,8 +54,8 @@ class MysStundAPI extends \SystemBolagetAPI {
                     
                     // Message
                     $this->adj 	= [ "glatt", "försiktigt" ];
-                    $this->meth 	= [ "klunka", "dricka", "smutta", "smaka" ];
-                   
+                    $this->meth = [ "klunka", "dricka", "smutta", "smaka" ];
+
                     // Andel sprit
                     $this->consumption = 0.2;
                     
